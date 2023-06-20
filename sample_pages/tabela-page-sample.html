@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabela de Boletos com Paginação</title>
+  <!-- Inclua os arquivos CSS do DataTables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+</head>
+<body>
+  <div id="paginacao">
+    <button class="pagina-anterior">Anterior</button>
+    <ul class="paginas"></ul>
+    <button class="proxima-pagina">Próxima</button>
+  </div>
+
+  <table id="tabela-boletos">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Data</th>
+        <th>Boleto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John Doe</td>
+        <td>2023-06-10</td>
+        <td>
+          <button onclick="abrirPaginaBoleto()">Abrir</button>
+        </td>
+      </tr>
+      <!-- <tr>
+        <td>Jane Smith</td>
+        <td>2023-06-11</td>
+        <td>
+          <button onclick="abrirPaginaBoleto()">Abrir</button>
+        </td>
+      </tr> -->
+      <!-- Adicione mais linhas conforme necessário -->
+    </tbody>
+  </table>
+
+  <!-- Inclua os arquivos JavaScript do jQuery e do DataTables -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+      var tabela = $('#tabela-boletos').DataTable({
+        "pagingType": "numbers",
+        "lengthChange": false,
+        "pageLength": 5,
+      });
+
+      $('#paginacao .pagina-anterior').on('click', function() {
+        tabela.page('previous').draw('page');
+      });
+
+      $('#paginacao .proxima-pagina').on('click', function() {
+        tabela.page('next').draw('page');
+      });
+
+      tabela.on('draw', function() {
+        var info = tabela.page.info();
+        var paginas = '';
+
+        for (var i = 0; i < info.pages; i++) {
+          paginas += '<li class="pagina" data-pagina="' + i + '">' + (i + 1) + '</li>';
+        }
+
+        $('#paginacao .paginas').html(paginas);
+
+        $('#paginacao .paginas .pagina').on('click', function() {
+          tabela.page($(this).data('pagina')).draw('page');
+        });
+      });
+    });
+
+    function abrirPaginaBoleto() {
+      window.open('boleto-sample.html');
+    }
+  </script>
+</body>
+</html>

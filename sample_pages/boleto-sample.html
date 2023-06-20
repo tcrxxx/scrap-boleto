@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boleto Fictício</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <!-- <div id="download-container">
+    <button onclick="downloadBoleto()">Download Boleto</button>
+  </div> -->
+  <div id="download-container">
+    <a href="boleto-fake.pdf" download>
+      <button id="download-arquivo">Download Arquivo</button>
+    </a>
+  </div>
+  <!-- <div id="download-container">
+    <button onclick="gerarPDF()">Download PDF</button>
+  </div> -->
+  <!-- <div id="download-container">
+      <button id="download-arquivo" onclick="downloadPDF()">Download PDF</button>
+  </div> -->
+
+  <div id="boleto-container">
+    <h1>Boleto Fictício</h1>
+    <p>Número do Boleto: 123456789</p>
+    <p>Valor: R$ 100,00</p>
+    <p>Vencimento: 10/06/2023</p>
+    <!-- Informações adicionais do boleto -->
+  </div>
+
+  <!-- <script>
+    function downloadBoleto() {
+      // Lógica para efetuar o download do boleto aqui
+      alert("Download do boleto iniciado!");
+      // Exemplo de redirecionamento para um arquivo de boleto fictício
+      window.location.href = "caminho-para-o-boleto-ficticio.pdf";
+    }
+  </script> -->
+  
+  <!-- <script>
+    function gerarPDF() {
+      const doc = new jsPDF();
+      doc.text("Exemplo de conteúdo fictício em um PDF", 10, 10);
+      doc.save("arquivo_ficticio.pdf");
+    }
+  </script> -->
+
+  <!-- <script>
+    function downloadPDF() {
+      // URL do arquivo PDF
+      var pdfUrl = 'boleto-fake.pdf';
+
+      // Cria um elemento <a> oculto
+      var link = document.createElement('a');
+      link.style.display = 'none';
+      document.body.appendChild(link);
+
+      // Define a URL do arquivo PDF como o valor do atributo href
+      link.href = pdfUrl;
+
+      // Define o nome do arquivo PDF
+      link.download = 'boleto-fake.pdf';
+
+      // Simula um clique no link para iniciar o download
+      link.click();
+
+      // Remove o elemento <a> da página
+      document.body.removeChild(link);
+    }
+  </script> -->
+</body>
+</html>
