@@ -88,11 +88,13 @@ for linha in linhas_tabela:
         print("List dir: rename file")
         os.rename( DEFAULT_DOWNLOAD_PATH + '/' + nome_padrao_arquivo, DEFAULT_DOWNLOAD_PATH + '/' + novo_nome_arquivo)
 
+    # Feche a segunda janela
+    driver.close()
+
     # Volta para a janela principal
     driver.switch_to.window(janelas[0])
 
 # Encerra o navegador
 driver.quit()
 
-# TODO: conseguir navegar em mais de uma linha da tabela
 # TODO: acessar página de browser já existente
