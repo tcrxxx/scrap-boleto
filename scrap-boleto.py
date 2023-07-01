@@ -33,6 +33,11 @@ chrome_options.add_experimental_option('prefs', {
 }
 )
 
+# Configurar a porta de depuração do Chrome
+# debugging_port = 9222
+# Adicionar a opção de depuração remota
+# chrome_options.add_argument(f'--remote-debugging-port={debugging_port}')
+
 # Certifique-se de fornecer o caminho correto para o driver do Chrome
 # driver = webdriver.Chrome('./home/trodrigues/dev/repo/py-scrap-boletos/drivers/chromedriver_linux64/chromedriver')
 driver = webdriver.Chrome(options=chrome_options)
@@ -44,7 +49,12 @@ print("Configs ended...")
 
 print("Load page...")
 # Carrega a página do Google Chrome
-driver.get(f'file://{DEFAULT_PATH}/sample_pages/tabela-page-sample.html')
+# driver.get(f'file://{DEFAULT_PATH}/sample_pages/tabela-page-sample.html')
+driver.get(f'https://gmail.com/')
+
+# Wait Login to proceed
+timeout = 300 #seconds
+myElem = WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, '//table[@id="tabela-boletos"]/tbody/tr')))
 
 print("Find table element...")
 # Localiza todas as linhas da tabela
@@ -96,5 +106,3 @@ for linha in linhas_tabela:
 
 # Encerra o navegador
 driver.quit()
-
-# TODO: acessar página de browser já existente
