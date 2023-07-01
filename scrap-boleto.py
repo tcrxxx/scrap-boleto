@@ -5,12 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
-from PyPDF2 import PdfWriter
+# from PyPDF2 import PdfWriter
 
 print("Start...")
 
 # Cria um objeto PdfWriter para combinar os PDFs salvos
-pdf_writer = PdfWriter()
+# pdf_writer = PdfWriter()
 
 # Defines
 DEFAULT_PATH = '/home/trodrigues/dev/repo/scrap-boleto'
@@ -49,8 +49,8 @@ print("Configs ended...")
 
 print("Load page...")
 # Carrega a página do Google Chrome
-# driver.get(f'file://{DEFAULT_PATH}/sample_pages/tabela-page-sample.html')
-driver.get(f'https://gmail.com/')
+driver.get(f'file://{DEFAULT_PATH}/sample_pages/tabela-page-sample.html')
+# driver.get(f'https://gmail.com/')
 
 # Wait Login to proceed
 timeout = 300 #seconds
