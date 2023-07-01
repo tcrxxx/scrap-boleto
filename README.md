@@ -11,4 +11,4 @@
 
 # Run
 
-.venv/bin/python /scrap-boleto/scrap-boleto.py
+.venv/bin/python scrap-boleto.py
