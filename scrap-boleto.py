@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 # from PyPDF2 import PdfWriter
+import pathlib
 
 print("Start...")
 
@@ -13,7 +14,7 @@ print("Start...")
 # pdf_writer = PdfWriter()
 
 # Defines
-DEFAULT_PATH = '/home/trodrigues/dev/repo/scrap-boleto'
+DEFAULT_PATH = pathlib.Path().resolve()
 DEFAULT_DOWNLOAD_PATH = f'{DEFAULT_PATH}/downloaded_files';
 
 
