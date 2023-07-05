@@ -50,11 +50,11 @@ print("Configs ended...")
 
 print("Load page...")
 # Carrega a página do Google Chrome
-driver.get(f'file://{DEFAULT_PATH}/sample_pages/tabela-page-sample.html')
-# driver.get(f'https://gmail.com/')
+# driver.get(f'file://{DEFAULT_PATH}/sample_pages/tabela-page-sample.html')
+driver.get(f'https://www.itau.com.br/empresas')
 
 # Wait Login to proceed
-timeout = 300 #seconds
+timeout = 900 #seconds - 15 minutes
 myElem = WebDriverWait(driver, timeout).until(EC.visibility_of_element_located((By.XPATH, '//table[@id="tabela-boletos"]/tbody/tr')))
 
 print("Find table element...")
@@ -107,3 +107,13 @@ for linha in linhas_tabela:
 
 # Encerra o navegador
 driver.quit()
+
+#TODO: select table class="TRNfundo"
+#TODO: navegar na paginação <a href="javascript:Busca(2);" class="lnkpadrao01">2</a>
+#TODO: nome do arquivo = coluna[0] (pagador) + "-" + coluna[5] (seu numero)
+
+#TODO: botão da primeira tela
+#<a onclick="javascript:window.open('PopUp.htm','BLOQUETO','resizable=yes,location=no,directories=no,status=yes,toolbar=yes,menubar=yes,scrollbars=yes,width=650,height=400,left=20,top=10')" href="javascript:ConsultaBoleto('2938353733','112','51015979','4','S');" class="lnkpadrao01">emitir</a>
+
+#TODO: botão da segunda tela
+#<a href="javascript:document.frmPDF.submit();"><img border="0" src="/Itau/Imagens/bt_gerar_boleto.gif" alt="Versão para Impressão"></a>
